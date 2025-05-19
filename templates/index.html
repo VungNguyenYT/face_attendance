@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Face Attendance</title>
+</head>
+<body>
+    <h2>Tạo tiết học mới</h2>
+    <form action="/create-session" method="POST">
+        Tên môn học: <input type="text" name="subject"><br>
+        Bắt đầu: <input type="datetime-local" name="start_time"><br>
+        Kết thúc: <input type="datetime-local" name="end_time"><br>
+        <button type="submit">Tạo</button>
+    </form>
+
+    <h2>Đi đến trang đăng ký khuôn mặt</h2>
+    <a href="/register">Đăng ký sinh viên</a><br><br>
+
+    <h3>Nhập ID buổi học để điểm danh:</h3>
+    <form action="/attendance/" method="get" onsubmit="event.preventDefault(); window.location='/attendance/'+document.getElementById('id').value;">
+        ID buổi học: <input type="number" id="id">
+        <input type="submit" value="Bắt đầu điểm danh">
+    </form>
+</body>
+</html>

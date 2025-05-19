@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đăng ký sinh viên</title>
+</head>
+<body>
+    <h2>Đăng ký khuôn mặt sinh viên</h2>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form method="POST" enctype="multipart/form-data">
+        Họ tên: <input type="text" name="name"><br>
+        MSSV: <input type="text" name="student_id"><br>
+        Mã lớp: <input type="text" name="class_code"><br>
+        Ảnh khuôn mặt: <input type="file" name="photo"><br>
+        <button type="submit">Đăng ký</button>
+    </form>
+</body>
+</html>

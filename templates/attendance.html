@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Điểm danh buổi học</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f2f2f2; }
+        h2 { color: #333; }
+    </style>
+</head>
+<body>
+    <h2>Thông tin điểm danh - Buổi học: {{ session.subject }}</h2>
+    <p>Thời gian: {{ session.start_time }} → {{ session.end_time }}</p>
+
+    {% if attendance %}
+        <table>
+            <tr>
+                <th>Họ tên</th>
+                <th>MSSV</th>
+                <th>Lớp</th>
+                <th>Thời gian điểm danh</th>
+            </tr>
+            {% for student in attendance %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.student_id }}</td>
+                <td>{{ student.class_code }}</td>
+                <td>{{ student.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Chưa có sinh viên nào điểm danh.</p>
+    {% endif %}
+
+    <br><a href="/">← Quay lại trang chủ</a>
+</body>
+</html>
